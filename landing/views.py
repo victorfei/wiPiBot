@@ -11,9 +11,9 @@ def landing(request):
   return HttpResponse(html)
 
 
-def current_datetime(request):
-  now = datetime.datetime.now()
-  html = "<html><body>It is now %s. </body></html>" % now
+def dashboard(request):
+  t = get_template('dashboard/dashboard.html')
+  html = t.render()
   return HttpResponse(html)
 
 

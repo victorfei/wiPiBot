@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
   url(r'^$', views.landing, name='landing'),
+  url(r'^dashboard/$', views.dashboard, name='dashboard'),
   url(r'^time/plus/(\d{1,2})/$', views.hours_ahead, name='hours_ahead'),
 ]
 

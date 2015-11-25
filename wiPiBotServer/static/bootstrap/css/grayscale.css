@@ -261,11 +261,11 @@ a:focus {
     padding-top: 100px;
 }
 
-.launch-section {
+.srccode-section {
     width: 100%;
     padding: 50px 0;
     color: #fff;
-    background: url(../img/launch-bg.jpg) no-repeat center center scroll;
+    background: url(../img/srccode-bg.jpg) no-repeat center center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -278,7 +278,7 @@ a:focus {
         padding-top: 250px;
     }
 
-    .launch-section {
+    .srccode-section {
         padding: 100px 0;
     }
 }
