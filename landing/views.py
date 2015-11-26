@@ -1,8 +1,7 @@
-from django.shortcuts import render
 from django.http import HttpResponse, Http404
 import datetime
 from django.template.loader import get_template
-
+from wiPiBotClient import *
 
 def landing(request):
   t = get_template('index.html')
@@ -12,8 +11,18 @@ def landing(request):
 
 
 def dashboard(request):
+  # used to keep track when buttons are pressed twice.
+  # you keep in cruise mode
+
+
   t = get_template('dashboard/dashboard.html')
   html = t.render()
+
+  if 'cmd' in request.GET and request.GET['cmd']:
+    direction = request.GET['cmd']
+
+    motor_control(direction)
+
   return HttpResponse(html)
 
 
