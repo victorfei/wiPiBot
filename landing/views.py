@@ -13,8 +13,7 @@ def landing(request):
 def dashboard(request):
   # used to keep track when buttons are pressed twice.
   # you keep in cruise mode
-
-
+  
   t = get_template('dashboard/dashboard.html')
   html = t.render()
 
@@ -22,7 +21,8 @@ def dashboard(request):
     direction = request.GET['cmd']
 
     motor_control(direction)
-
+  
+  GPIO.cleanup()
   return HttpResponse(html)
 
 
