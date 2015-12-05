@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404
 import datetime
 from django.template.loader import get_template
-from wiPiBotClient import *
+#from wiPiBotClient import *
 
 def landing(request):
   t = get_template('index.html')
@@ -20,9 +20,9 @@ def dashboard(request):
   if 'cmd' in request.GET and request.GET['cmd']:
     direction = request.GET['cmd']
 
-    motor_control(direction)
+ #   motor_control(direction)
   
-  GPIO.cleanup()
+  #GPIO.cleanup()
   return HttpResponse(html)
 
 
