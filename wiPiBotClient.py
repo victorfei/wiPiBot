@@ -1,7 +1,6 @@
 # client side
 import time
 import RPi.GPIO as GPIO
-
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(12, GPIO.OUT)
 GPIO.setup(13, GPIO.OUT)
@@ -33,33 +32,53 @@ def motor_control(direction):
   
   global motor_a
   global motor_b
-
+  global pwm_out1
+  global pwm_out2
+ 
   if (direction == "fwd"):
-    
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    pwm_out1=GPIO.PWM(12,50)
+    pwm_out2=GPIO.PWM(13,50)
     pwm_out1.start(motor_a)
     pwm_out2.start(motor_b)
-
+    print motor_a, motor_b
+ 
   if (direction == "bwd"):
-    
-    pwm_out1.start(motor_a)
-    pwm_out2.start(motor_b)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    pwm_out1=GPIO.PWM(12,50)
+    pwm_out2=GPIO.PWM(13,50) 
+    pwm_out1.start(motor_b)
+    pwm_out2.start(motor_a)
    
   if (direction == "left"):     
-
-    pwm_out1.start(motor_a)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    pwm_out1=GPIO.PWM(12,50)
+    pwm_out2=GPIO.PWM(13,50) 
+    pwm_out1.start(motor_b)
     pwm_out2.start(motor_b)
    
-
   if (direction == "right"):
-
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    pwm_out1=GPIO.PWM(12,50)
+    pwm_out2=GPIO.PWM(13,50) 
     pwm_out1.start(motor_a)
-    pwm_out2.start(motor_b)
+    pwm_out2.start(motor_a)
    
 
   if (direction == "stop"):
+    
     pwm_out1.stop()
     pwm_out2.stop()
-  
+
+
   if (direction == "exit"):
     GPIO.cleanup()
 
