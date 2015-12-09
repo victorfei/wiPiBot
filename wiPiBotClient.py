@@ -78,18 +78,14 @@ def motor_control(direction):
     pwm_out1.stop()
     pwm_out2.stop()
 
-
   if (direction == "exit"):
     GPIO.cleanup()
 
-def LED_control(power):
-  print power
-  if (power == "off"):
-    GPIO.output(21, False)
-     
-  if (power == "on"):
+def blink():
+  for i in range(4):
     GPIO.output(21, True)
-   
-  if (power == "exit"):
-    GPIO.cleanup()
-    
+    time.sleep(0.3)
+    GPIO.output(21, False)
+    time.sleep(0.3)
+  
+  
