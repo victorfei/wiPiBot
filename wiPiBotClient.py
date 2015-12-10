@@ -73,13 +73,9 @@ def motor_control(direction):
     pwm_out1.start(motor_a)
     pwm_out2.start(motor_a)
    
-
   if (direction == "stop"):
-    
     pwm_out1.stop()
     pwm_out2.stop()
-
-  if (direction == "clearu"):
     GPIO.cleanup()
 
 def blink():

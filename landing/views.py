@@ -1,6 +1,8 @@
 from django.http import HttpResponse, Http404
 import datetime
 from django.template.loader import get_template
+from django.template import Context
+from django.shortcuts import render
 from landing.models import *
 from wiPiBotClient import *
 
@@ -16,7 +18,6 @@ def dashboard(request):
   # you keep in cruise mode
   
   t = get_template('dashboard/dashboard.html')
-  html = t.render()
 
   if 'cmd' in request.GET and request.GET['cmd']:
     cmd = request.GET['cmd']
@@ -33,11 +34,9 @@ def dashboard(request):
     if cmd == 'stop-record':
       camera.stop()
 
-
     motor_control(cmd)
 
-  
-  return HttpResponse(html)
+  return HttpResponse(t.render())
 
 
 def hours_ahead(request, offset):
