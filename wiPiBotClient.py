@@ -44,6 +44,7 @@ def motor_control(direction):
     pwm_out1.start(motor_a)
     pwm_out2.start(motor_b)
     print motor_a, motor_b
+
  
   if (direction == "bwd"):
     GPIO.setmode(GPIO.BCM)
@@ -78,7 +79,7 @@ def motor_control(direction):
     pwm_out1.stop()
     pwm_out2.stop()
 
-  if (direction == "exit"):
+  if (direction == "clearu"):
     GPIO.cleanup()
 
 def blink():

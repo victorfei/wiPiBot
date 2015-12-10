@@ -33,3 +33,33 @@ function bwd() {
   xhttp.open("GET", "?cmd=bwd", true);
   xhttp.send();
 }
+
+function speed_up() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "?cmd=up", true);
+  xhttp.send();
+}
+
+function speed_down() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "?cmd=down", true);
+  xhttp.send();
+}
+
+function record() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "?cmd=record", true);
+  xhttp.send();
+}
+
+function stop_record() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "?cmd=stop-record", true);
+  xhttp.send();
+}
+
+function clear() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "?cmd=clear", true);
+  xhttp.send();
+}

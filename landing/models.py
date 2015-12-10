@@ -1,3 +1,4 @@
-from django.db import models
+from camera_network import *
 
 # Create your models here.
+camera = CameraNetwork()

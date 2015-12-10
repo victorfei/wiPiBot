@@ -1,9 +1,7 @@
 from django.http import HttpResponse, Http404
 import datetime
 from django.template.loader import get_template
-import socket
-import time
-import picamera
+from landing.models import *
 from wiPiBotClient import *
 
 def landing(request):
@@ -19,33 +17,25 @@ def dashboard(request):
   
   t = get_template('dashboard/dashboard.html')
   html = t.render()
- # camera = picamera.PiCamera()
-
- # camera.resolution = (640, 480)
- # camera.framerate = 24
- # camera.vflip = True
-
- # server_socket = socket.socket()
- # server_socket.bind(('0.0.0.0', 8000))
- # server_socket.listen(0)
-
- # # Accept a single connection and make a file-like object out of it
- # connection = server_socket.accept()[0].makefile('wb')
- # try:
- #     camera.start_recording(connection, format='h264')
- #     camera.wait_recording(60)
- #     camera.stop_recording()
- # finally:
- #     connection.close()
- #     server_socket.close()
 
   if 'cmd' in request.GET and request.GET['cmd']:
-    direction = request.GET['cmd']
-    
-    if direction == 'led':
+    cmd = request.GET['cmd']
+
+    if cmd == 'led':
       blink()
 
-    motor_control(direction)
+    if (cmd == 'up') or (cmd =='down'):
+      speed_control(cmd)
+
+    if cmd == 'record':
+      camera.record()
+
+    if cmd == 'stop-record':
+      camera.stop()
+
+
+    motor_control(cmd)
+
   
   return HttpResponse(html)
 
