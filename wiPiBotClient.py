@@ -79,6 +79,9 @@ def motor_control(direction):
     GPIO.cleanup()
 
 def blink():
+  GPIO.setmode(GPIO.BCM)
+  GPIO.setup(21, GPIO.OUT)
+  
   for i in range(4):
     GPIO.output(21, True)
     time.sleep(0.3)
