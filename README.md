@@ -1,5 +1,7 @@
 # wiPiBot - In the age of the Internet of Things, this is what you deserve:
   A cool remotely controlled bot like the ones in movies, which can be controlled from anywhere in the world with a browser, with on board camera and full range motions. <br>
+
+#Website: https://courses.cit.cornell.edu/ece5990/ECE5990_Fall15_FinalProjects/Victor_Fei/website/index
  The objective of this project is to create a mobile robot platform powered by two servo motors. There is an onboard camera on the wiPiBot to give its pilot a view of the wiPiBot's sorroundings. The project utilizes a Raspberry Pi B2 model to command all the actions of the robot. Additionally, the Raspberry Pi hosts a server using the Django framework written in Python. The wiPiBot broadcasts the video and various data of its sorroundings to user, and the user controls the wiPiBot's motion through the dashboard that is hosted on the wiPiBot's server.
 # To Run Server:
 1. Install Django on Raspberry Pi from https://github.com/rmasters/DjangoPi
